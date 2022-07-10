@@ -22,8 +22,15 @@ jobs:
       with:
         go-version: ${{ matrix.go }}
 
-    - name: Test
-      run: go test -v ./...
+    - name: Run unit tests
+      run: go test -race -covermode atomic -coverprofile=profile.cov ./...
+
+    - name: Send coverage
+      uses: shogo82148/actions-goveralls@v1
+      with:
+        path-to-profile: profile.cov
+        flag-name: Go-${{ matrix.go }}
+        parallel: true
 
   golangci:
     name: lint
@@ -41,3 +48,12 @@ jobs:
 
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v3
+  
+  # notifies that all test jobs are finished.
+  finish:
+    needs: ci-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shogo82148/actions-goveralls@v1
+        with:
+          parallel-finished: true
