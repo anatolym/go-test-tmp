@@ -1,4 +1,4 @@
-module github.com/anatolym/go-test-tmp
+module github.com/anatolym/go-test-tmp/v2
 
 go 1.18
 
