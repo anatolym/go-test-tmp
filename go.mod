@@ -1,3 +1,4 @@
+// Deprecated: use github.com/anatolym/go-test-tmp/v2 instead.
 module github.com/anatolym/go-test-tmp
 
 go 1.18

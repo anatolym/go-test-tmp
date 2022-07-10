@@ -3,3 +3,8 @@
 Fist line in the README.md.
 
 2nd line in the README.md.
+
+## Deprecation Notice
+
+V1 is deprecated, use `github.com/anatolym/go-test-tmp/v1` instead. The code for
+V1 will live in `v1` branch from now on.
